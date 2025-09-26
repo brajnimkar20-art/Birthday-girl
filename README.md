@@ -19,40 +19,40 @@ body {
 .card {
   background-color: #fff3f3;
   border-radius: 20px;
-  padding: 40px;
+  padding: 5vw;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  max-width: 450px;
+  max-width: 90vw;
   z-index: 10;
   position: relative;
 }
 .card h1 {
   color: #ff4b5c;
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 6vw;
+  margin-bottom: 4vw;
 }
 .card p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-size: 4vw;
+  margin-bottom: 4vw;
   color: #333;
-  min-height: 60px;
+  min-height: 10vw;
 }
 #final-message {
-  font-size: 1.5rem;
+  font-size: 5vw;
   font-weight: bold;
   color: #ff1f3c;
   opacity: 0;
-  margin-top: 10px;
+  margin-top: 2vw;
 }
 .card button {
-  padding: 12px 25px;
-  font-size: 1rem;
+  padding: 3vw 6vw;
+  font-size: 4vw;
   color: #fff;
   background-color: #ff4b5c;
   border: none;
-  border-radius: 50px;
+  border-radius: 10vw;
   cursor: pointer;
-  margin: 5px;
+  margin: 2vw;
   transition: 0.3s;
 }
 .card button:hover {
@@ -75,7 +75,7 @@ canvas {
 }
 .heart {
   position: absolute;
-  font-size: 20px;
+  font-size: 5vw;
   color: #ff4b5c;
   animation: float 5s linear infinite;
   opacity: 0.8;
@@ -86,8 +86,8 @@ canvas {
 }
 .balloon {
   position: absolute;
-  bottom: -150px;
-  font-size: 2rem;
+  bottom: -15vw;
+  font-size: 10vw;
   animation: floatBalloon linear infinite;
 }
 @keyframes floatBalloon {
@@ -96,8 +96,8 @@ canvas {
 }
 .firework {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 2vw;
+  height: 2vw;
   border-radius: 50%;
   background-color: #ffd700;
   opacity: 0.8;
@@ -160,7 +160,7 @@ function showConfetti() {
 
   const confetti = [];
   const colors = ['#ff4b5c','#ffb347','#ff9a9e','#fad0c4','#fbc2eb'];
-  for(let j=0;j<150;j++){
+  for(let j=0;j<80;j++){ // fewer for mobile
     confetti.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height-canvas.height,r:Math.random()*6+4,d:Math.random()*150+50,color:colors[Math.floor(Math.random()*colors.length)],tilt:Math.random()*10-10,tiltAngleIncrement:Math.random()*0.07+0.05});
   }
 
@@ -195,11 +195,11 @@ function createHearts(){
     const heart = document.createElement('div');
     heart.classList.add('heart');
     heart.style.left = Math.random()*window.innerWidth+'px';
-    heart.style.fontSize = Math.random()*30+20+'px';
+    heart.style.fontSize = Math.random()*5+3+'vw';
     heart.textContent='❤️';
     container.appendChild(heart);
     setTimeout(()=>heart.remove(),5000);
-  },300);
+  },400);
 }
 createHearts();
 
@@ -211,19 +211,19 @@ function createBalloons(){
     const balloon=document.createElement('div');
     balloon.classList.add('balloon');
     balloon.style.left=Math.random()*window.innerWidth+'px';
-    balloon.style.fontSize=Math.random()*50+30+'px';
+    balloon.style.fontSize=Math.random()*10+5+'vw';
     balloon.textContent=colors[Math.floor(Math.random()*colors.length)];
     balloon.style.animationDuration=(5+Math.random()*5)+'s';
     container.appendChild(balloon);
     setTimeout(()=>balloon.remove(),10000);
-  },500);
+  },600);
 }
 createBalloons();
 
 // Fireworks
 function createFireworks(){
   const container=document.getElementById('fireworks-container');
-  for(let i=0;i<30;i++){
+  for(let i=0;i<20;i++){
     const firework=document.createElement('div');
     firework.classList.add('firework');
     firework.style.left=Math.random()*window.innerWidth+'px';
@@ -235,4 +235,5 @@ function createFireworks(){
 </script>
 </body>
 </html>
+
 
